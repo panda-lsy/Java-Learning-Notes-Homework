@@ -1,0 +1,63 @@
+package Chapter07;
+// PRACTICE: Create a static inner class
+// 练习：创建一个静态内部类
+
+class University {
+    static String universityName = "Tech University";
+
+    // TODO: Create a static inner class called Student
+    // 待办：创建一个名为Student的静态内部类
+    static class Student {
+        String name;
+
+        // TODO: Add constructor to set student name
+        // 待办：添加构造函数来设置学生姓名
+        void setName(String name){
+            this.name = name;
+        }
+        // TODO: Create a method to display student info
+        // 待办：创建一个显示学生信息的方法
+        void showInfo() {
+            //only static variables of University class can be used inside static inner class Student.
+
+            }
+    }
+}
+
+public class StaticinnerDemo {
+    public static void main(String[] args) {
+        // PRACTICE 1: Create student objects
+        // 练习1：创建学生对象
+
+        // How to create static inner class objects:
+        // 如何创建静态内部类对象：
+        // Syntax: OuterClass.InnerClass objectName = new
+        OuterClass.InnerClass();
+        // 语法：外部类.内部类 对象名 = new 外部类.内部类();
+
+        // Creating first student object
+        // 创建第一个学生对象
+
+        // Breakdown:
+        // University - outer class name / 外部类名
+        // Student - inner class name / 内部类名
+        // s1 - object variable name / 对象变量名
+        // new University.Student("Alice") - creates new object with name
+        "Alice" / 创建名为"Alice"的新对象
+
+
+        // PRACTICE 2: Call their methods
+        // 练习2：调用它们的方法
+        s1.showInfo();
+        s2.showInfo();
+
+        // PRACTICE 3: Change university name and see what happens
+        // 练习3：更改大学名称并观察结果
+        University.universityName = "Science University";
+
+        University.Student s3 = new University.Student("Charlie");
+        s3.showInfo();
+        s1.showInfo(); // See how existing objects are affected
+        // 观察现有对象如何受影响
+    }
+}
