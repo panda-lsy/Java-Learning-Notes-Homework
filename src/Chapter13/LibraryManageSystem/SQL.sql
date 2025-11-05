@@ -1,0 +1,13 @@
+-- SQL: 创建数据库、表并插入示例数据
+CREATE DATABASE IF NOT EXISTS books CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE books;
+
+CREATE TABLE IF NOT EXISTS books (
+  book_id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(100) NOT NULL,
+  author VARCHAR(100) NOT NULL UNIQUE,
+  is_available BOOLEAN NOT NULL
+);
+
+#CREATE DATABASE IF NOT EXISTS books CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+

@@ -29,6 +29,7 @@ public class InsertDemo {
 
                 // Insert first passenger record with ID 101
                 // 插入第一个乘客记录，ID为101
+                /*
                 String sql1 = "insert into passenger(passengerID, name, address, Seat_Number) values(101, 'Paul', 'Hainan University,Haikou', 25)";
                 stmt.executeUpdate(sql1);
                 System.out.println("Inserted passenger with ID 101");
@@ -38,18 +39,25 @@ public class InsertDemo {
                 String sql2 = "insert into passenger(passengerID, name, address, Seat_Number) values(102, 'Carter', 'Hainan Normal University,Haikou', 26)";
                 stmt.executeUpdate(sql2);
                 System.out.println("Inserted passenger with ID 102");
+                */
                 
                 // Student Task: Insert third passenger record with ID 103
                 // 学生任务：插入第三个乘客记录，ID为103
                 // TODO: Add code to insert passenger with ID 103
                 // 添加代码插入ID为103的乘客
-                String sql3 = "insert into passenger(passengerID, name, address, Seat_Number) values(103, 'Emma', 'Haikou College of Economics,Haikou', 27)";
-                stmt.executeUpdate(sql3);
-                stmt.close();
-                
+                String sql3 = "insert into passenger(passengerID, name, address, Seat_Number) values(?,?,?,?)";
+                PreparedStatement ps1=con.prepareStatement(sql3);
+                ps1.setInt(1,105);
+                ps1.setString(2,"Good");
+                ps1.setString(3,"HNNU");
+                ps1.setInt(4,18);
+                int insertedRows = ps1.executeUpdate();
+                System.out.println("Inserted "+insertedRows+" Rows");
                 System.out.println("Insert operations completed");
             }
 
+        } catch (SQLIntegrityConstraintViolationException e){
+            System.out.println("Already done");
         } catch (SQLException e) {
             System.out.println("Database Operation Failed: " + e.getMessage());
             System.out.println("Error Code: " + e.getErrorCode());

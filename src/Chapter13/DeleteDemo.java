@@ -29,14 +29,18 @@ public class DeleteDemo {
 
                 // Delete passenger with ID 103 from the table
                 // 从表中删除ID为103的乘客
-                String sql = "delete from passenger where passengerID=103";
+                String sql = "delete from passenger where passengerID=?";
+                PreparedStatement ps1 = con.prepareStatement(sql);
+                ps1.setInt(1,103);
                 stmt.executeUpdate(sql);
                 System.out.println("Deleted passenger with ID 103");
                 // Student Task: Delete passenger with ID 102 from the table
                 // 学生任务：从表中删除ID为102的乘客
                 // TODO: Add code to delete passenger with ID 102
                 // 添加代码删除ID为102的乘客
-                String sql2 = "delete from passenger where passengerID=102";
+                String sql2 = "delete from passenger where passengerID=?";
+                PreparedStatement ps2 = con.prepareStatement(sql2);
+                ps2.setInt(1,102);
                 stmt.executeUpdate(sql2);
                 System.out.println("Deleted passenger with ID 102");
                 stmt.close();

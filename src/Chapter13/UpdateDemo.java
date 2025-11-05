@@ -36,9 +36,13 @@ public class UpdateDemo {
                 // Student Task: Update passenger address for passenger with ID 101
                 // 学生任务：更新ID为101的乘客地址
                 // TODO: Add code to update address for passenger ID 101
-                // 添加代码更新ID为101的乘客地址
-
-                stmt.close();
+                // 添加代码更新ID为101的乘客地址]
+                String sql2 = "update passenger set address=? where passengerID=?";
+                PreparedStatement ps1 = con.prepareStatement(sql2);
+                ps1.setString(1,"HNNU");
+                ps1.setInt(2,101);
+                int insertedRows = ps1.executeUpdate();
+                System.out.println("Updated "+insertedRows+" Rows");
                 System.out.println("Update operations completed");
             }
 

@@ -12,6 +12,10 @@ fruits(int p){
 public int getPrice(){
     return price;
 }
+
+public static fruits[] getAllValues(){
+    return fruits.values();
+}
 }
 
 public class EnumDemo {
@@ -19,5 +23,8 @@ public class EnumDemo {
         fruits f1 = fruits.mango;
         System.out.println(f1);
         System.out.println(f1.getPrice());
+        for (fruits fruit : fruits.getAllValues()) {
+            System.out.println(fruit);
+        }
     }
 }

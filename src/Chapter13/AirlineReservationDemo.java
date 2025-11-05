@@ -18,7 +18,7 @@ public class AirlineReservationDemo {
             if (con != null) {
                 System.out.println("Connected to database successfully");
 
-                Statement stmt = con.createStatement();
+                Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 
                 // =================================================================
                 // ACTIVITY 1: DISPLAY ALL PASSENGER INFORMATION
@@ -50,8 +50,29 @@ public class AirlineReservationDemo {
                 }
                 rs.close();
 
+                System.out.println("\n=== ACTIVITY 2: FIND PASSENGER BY NAME ===");
+                //find passenger details where name starts with lette a
+                String query1 = "select * from passenger where name like '%a'";
+                ResultSet rs0 = stmt.executeQuery(query1);
+                while (rs0.next()) {
+                    //formatting output
+                    //- left align
+                    //11 no of characters
+                    // d-inteeger
+                    System.out.printf("%-11d | %-9s | %-33s | %d%n",
+                            rs0.getInt("passengerID"),
+                            rs0.getString("name"),
+                            rs0.getString("address"),
+                            rs0.getInt("Seat_Number")
+                    );
+                }
+                rs0.close();
 
-                System.out.println("\n=== ACTIVITY 2: FIND PASSENGER BY ID ===");
+
+                System.out.println("\n=== ACTIVITY 3: FIND PASSENGER BY ID ===");
+
+
+
 
 
                 // Student Task: Display details of passenger with passengerID 101
