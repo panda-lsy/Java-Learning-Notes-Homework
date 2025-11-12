@@ -1,4 +1,4 @@
-package Chapter12;
+package Chapter12.SerializationDemo;
 
 import java.io.Serializable;
 
