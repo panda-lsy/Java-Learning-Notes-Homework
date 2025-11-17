@@ -1,0 +1,5 @@
+TV,2500
+Mobile,950
+Laptop,5000
+Pen,25
+Tablet,1200
